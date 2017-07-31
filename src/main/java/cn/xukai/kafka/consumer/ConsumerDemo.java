@@ -27,8 +27,10 @@ public class ConsumerDemo {
         /* 读取数据，读取超时时间为100ms */
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);
-            for (ConsumerRecord<String, String> record : records)
+            for (ConsumerRecord<String, String> record : records) {
                 System.out.printf("offset = %d, key = %s, value = %s", record.offset(), record.key(), record.value());
+                System.out.println();
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ package cn.xukai.kafka.producer;
 import org.apache.kafka.clients.producer.*;
 
 import java.util.Properties;
+import java.util.Random;
 
 /**
  * Created by kaixu on 2017/7/3.
@@ -38,7 +39,11 @@ public class ProducerDemo {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         Producer<String, String> producer = new KafkaProducer<>(props);
-        for(int i = 0; i < 100; i++){
+        Random ran = new Random();
+        while(true){
+            int i = ran.nextInt(1000);
+            System.out.println(i);
+            Thread.sleep(i);
             ProducerRecord record= new ProducerRecord<String, String>("test", Integer.toString(i), Integer.toString(i));
 //            Future<RecordMetadata> future = producer.send(record);
 //            future.get();  //阻塞   直到请求完毕后才返回。
@@ -54,6 +59,6 @@ public class ProducerDemo {
             });
         }
 
-        producer.close();
+//        producer.close();
     }
 }
