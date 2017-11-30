@@ -15,7 +15,7 @@ import java.util.Properties;
 public class ConsumerDemo {
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "192.168.107.128:9092");
+        props.put("bootstrap.servers", "192.168.107.128:9093");
         props.put("group.id", "xx");
         props.put("enable.auto.commit", "true");
         props.put("auto.commit.interval.ms", "1000");
@@ -23,7 +23,7 @@ public class ConsumerDemo {
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
         //消费者订阅的topic, 可同时订阅多个
-        consumer.subscribe(Arrays.asList("test"));
+        consumer.subscribe(Arrays.asList("xk-3"));
         /* 读取数据，读取超时时间为100ms */
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);

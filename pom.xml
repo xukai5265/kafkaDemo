@@ -11,25 +11,27 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <scala.version>2.11.7</scala.version>
+    <scala.version>2.12.3</scala.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
     <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
       <version>${scala.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>kafka-clients</artifactId>
-      <version>0.11.0.0</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka_2.11</artifactId>
-      <version>0.11.0.0</version>
+      <artifactId>kafka_2.12</artifactId>
+      <version>1.0.0</version>
     </dependency>
 
     <dependency>
@@ -41,8 +43,8 @@
   </dependencies>
   <build>
     <defaultGoal>install</defaultGoal>
-    <sourceDirectory>src/main/scala</sourceDirectory>
-    <testSourceDirectory>src/test/scala</testSourceDirectory>
+    <sourceDirectory>src/main/</sourceDirectory>
+    <testSourceDirectory>src/test/</testSourceDirectory>
 
     <plugins>
       <plugin>

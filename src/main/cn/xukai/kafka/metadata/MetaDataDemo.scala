@@ -15,8 +15,9 @@ import kafka.consumer.SimpleConsumer
   */
 object MetaDataDemo {
   def main(args: Array[String]): Unit = {
-    val consumer = new SimpleConsumer("192.168.107.128",9092,50,1024*4,DefaultClientId)
-    val req: TopicMetadataRequest = new TopicMetadataRequest(CurrentVersion,0,DefaultClientId,List("test"))
+    val consumer = new SimpleConsumer("192.168.107.128",9093,50,1024*4,DefaultClientId)
+
+    val req: TopicMetadataRequest = new TopicMetadataRequest(CurrentVersion,0,DefaultClientId,List("xk-3"))
     val resp: TopicMetadataResponse = consumer.send(req)
     println("Broker Infos:")
     println(resp.brokers.mkString("\n\t"))
